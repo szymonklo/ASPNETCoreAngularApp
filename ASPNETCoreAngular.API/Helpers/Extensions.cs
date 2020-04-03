@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Http;
 
 namespace ASPNETCoreAngular.API.Helpers
@@ -11,6 +12,16 @@ namespace ASPNETCoreAngular.API.Helpers
             //to display error (Angular)
             response.Headers.Add("Access-Control-Expopse-Headers", "Application-Error");
             response.Headers.Add("Access-Control-Allow-Origin","*");
+        }
+
+        public static int CalculateAge(this DateTime theDateTime)
+        {
+            var age = DateTime.Today.Year - theDateTime.Year;
+
+            if (theDateTime.AddYears(age) > DateTime.Today)
+                age--;
+
+            return age;
         }
     }
 }
