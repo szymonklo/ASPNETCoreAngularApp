@@ -44,6 +44,7 @@ namespace ASPNETCoreAngular.API
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(Repository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IRepository, Repository>();
